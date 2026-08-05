@@ -19,23 +19,23 @@ body {
 .hero {
   max-width: 900px;
   margin: 100px auto 50px;
-  text-align: center;
   padding: 0 20px;
+  text-align: center;
 }
 
 .hero h1 {
+  margin-bottom: 24px;
   font-size: 64px;
   line-height: 1.1;
   letter-spacing: -2px;
-  margin-bottom: 24px;
 }
 
 .hero p {
   max-width: 700px;
   margin: auto;
+  color: #475569;
   font-size: 20px;
   line-height: 1.6;
-  color: #475569;
 }
 
 
@@ -52,13 +52,13 @@ body {
 }
 
 .product h2 {
-  font-size: 34px;
   margin-bottom: 12px;
+  font-size: 34px;
 }
 
 .subtitle {
-  color: #64748b;
   margin-bottom: 30px;
+  color: #64748b;
 }
 
 
@@ -71,21 +71,20 @@ body {
 }
 
 label {
-  text-align: left;
-  font-weight: 600;
   color: #334155;
+  font-weight: 600;
+  text-align: left;
 }
-
 
 select {
   width: 100%;
   margin-top: 8px;
   padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #cbd5e1;
-  font-size: 16px;
   background: white;
   color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -97,13 +96,13 @@ textarea {
   height: 180px;
   margin-top: 8px;
   padding: 20px;
-  border-radius: 16px;
-  border: 1px solid #cbd5e1;
-  font-size: 16px;
-  font-family: inherit;
-  resize: vertical;
-  outline: none;
   background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  outline: none;
+  font-family: inherit;
+  font-size: 16px;
+  resize: vertical;
 }
 
 textarea:focus,
@@ -116,19 +115,26 @@ select:focus {
 
 button {
   margin-top: 25px;
+  padding: 16px 40px;
   background: #0f172a;
   color: white;
   border: none;
-  padding: 16px 40px;
   border-radius: 999px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.2s;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
 }
 
-button:hover {
-  transform: translateY(-2px);
+button:hover:not(:disabled) {
   opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 
@@ -138,43 +144,94 @@ button:hover {
   margin-top: 40px;
 }
 
+.feedback:empty {
+  display: none;
+}
+
 
 /* Examiner Report */
 
 .report-title {
-  font-size: 28px;
   margin-bottom: 25px;
+  font-size: 28px;
 }
 
 
 /* Score Card */
 
 .score-card {
+  margin-bottom: 25px;
+  padding: 30px;
   background: #0f172a;
   color: white;
-  padding: 30px;
   border-radius: 20px;
   text-align: center;
-  margin-bottom: 25px;
 }
 
+.score-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
 
-.score-card h4 {
+.score-heading h4 {
   margin: 0;
   font-size: 18px;
 }
 
-
-.score {
-  font-size: 56px;
+.percentage-badge {
+  display: inline-flex;
+  min-width: 70px;
+  padding: 8px 14px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 15px;
   font-weight: 700;
-  margin: 10px 0;
 }
 
+.score {
+  margin: 18px 0 6px;
+  font-size: 56px;
+  font-weight: 700;
+}
 
-.score-card p {
-  margin: 0;
+.score-label {
+  margin: 0 0 28px;
   opacity: 0.8;
+}
+
+.progress-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.progress-track {
+  width: 100%;
+  height: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: #38bdf8;
+  border-radius: inherit;
+  transition: width 900ms ease;
+}
+
+.progress-caption {
+  margin: 14px 0 0;
+  font-size: 14px;
+  opacity: 0.75;
 }
 
 
@@ -186,33 +243,32 @@ button:hover {
   gap: 20px;
 }
 
-
 .report-card {
+  margin-bottom: 20px;
+  padding: 25px;
   background: #f8fafc;
   border-radius: 18px;
-  padding: 25px;
   text-align: left;
-  margin-bottom: 20px;
 }
-
 
 .report-card h4 {
   margin-top: 0;
   margin-bottom: 15px;
 }
 
-
-.report-card ul {
-  padding-left: 20px;
-  margin: 0;
+.report-card p {
+  line-height: 1.6;
 }
 
+.report-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
 
 .report-card li {
   margin-bottom: 10px;
   line-height: 1.5;
 }
-
 
 .improvement-card {
   background: #fff7ed;
@@ -227,25 +283,21 @@ button:hover {
   gap: 15px;
 }
 
-
 .mark-item {
   padding: 18px;
+  border-left: 5px solid;
   border-radius: 15px;
   text-align: left;
-  border-left: 5px solid;
 }
-
 
 .mark-item strong {
   font-size: 17px;
 }
 
-
 .mark-item p {
   margin: 8px 0;
   color: #475569;
 }
-
 
 .mark-item span {
   display: inline-block;
@@ -256,13 +308,12 @@ button:hover {
 }
 
 
-/* Achieved */
+/* Achieved Marks */
 
 .mark-item.achieved {
   background: #f0fdf4;
   border-color: #16a34a;
 }
-
 
 .mark-item.achieved span {
   background: #dcfce7;
@@ -270,13 +321,12 @@ button:hover {
 }
 
 
-/* Missing */
+/* Missing Marks */
 
 .mark-item.missing {
   background: #fff7ed;
   border-color: #ea580c;
 }
-
 
 .mark-item.missing span {
   background: #ffedd5;
@@ -284,33 +334,155 @@ button:hover {
 }
 
 
+/* Full-Mark Upgrade */
+
+.upgrade-section {
+  margin: 15px 0 30px;
+  padding: 30px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  text-align: left;
+}
+
+.upgrade-title {
+  margin: 0 0 8px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.upgrade-subtitle {
+  max-width: 520px;
+  margin: 0 auto 25px;
+  color: #64748b;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.upgrade-card {
+  margin-bottom: 18px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 17px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+}
+
+.upgrade-card:last-child {
+  margin-bottom: 0;
+}
+
+.upgrade-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.upgrade-card-heading h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.upgrade-icon {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.upgrade-card p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.missing-summary-card {
+  border-left: 5px solid #ea580c;
+}
+
+.sentence-card {
+  background: #eff6ff;
+  border-left: 5px solid #2563eb;
+}
+
+.full-mark-card {
+  background: #f0fdf4;
+  border-left: 5px solid #16a34a;
+}
+
+.upgrade-answer {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.examiner-comment-card {
+  background: #eef2ff;
+  border-left: 5px solid #4f46e5;
+}
+
+
 /* Mobile */
 
 @media (max-width: 700px) {
-
   .hero {
     margin-top: 60px;
   }
-
 
   .hero h1 {
     font-size: 42px;
   }
 
-
   .hero p {
     font-size: 17px;
   }
-
 
   .product {
     margin: 20px;
     padding: 30px 20px;
   }
 
-
   .report-grid {
     grid-template-columns: 1fr;
   }
 
+  .score-card {
+    padding: 25px 20px;
+  }
+
+  .score {
+    font-size: 48px;
+  }
+
+  .upgrade-section {
+    padding: 22px 16px;
+  }
+
+  .upgrade-title {
+    font-size: 23px;
+  }
+
+  .upgrade-card {
+    padding: 19px;
+  }
+}
+
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill {
+    transition: none;
+  }
+
+  button {
+    transition: none;
+  }
 }
