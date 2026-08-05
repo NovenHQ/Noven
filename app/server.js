@@ -6,9 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 app.get("/", (req, res) => {
   res.send("Noven backend is running");
 });
+
 
 app.post("/analyze", (req, res) => {
 
@@ -32,25 +34,50 @@ app.post("/analyze", (req, res) => {
 
     score: "4/6",
 
-    markBreakdown: [
-      "✓ Correct explanation of enzyme function",
-      "✓ Uses relevant biological terminology",
-      "✗ Missing explanation of active site specificity",
-      "✗ Needs more detail about enzyme-substrate interaction"
+
+    markAllocation: [
+
+      {
+        mark: "Mark 1",
+        point: "Enzymes are biological catalysts",
+        status: "Achieved"
+      },
+
+      {
+        mark: "Mark 2",
+        point: "Enzymes have specific active sites",
+        status: "Achieved"
+      },
+
+      {
+        mark: "Mark 3",
+        point: "Substrate binds to the active site",
+        status: "Missing"
+      },
+
+      {
+        mark: "Mark 4",
+        point: "Temperature affects enzyme structure",
+        status: "Missing"
+      }
+
     ],
+
 
     strengths: [
-      "Shows understanding of the basic biological concept",
-      "Uses some correct scientific vocabulary"
+      "Shows understanding of enzyme function",
+      "Uses correct biological terminology"
     ],
+
 
     improvements: [
-      "Include more precise explanations",
-      "Link ideas directly to the question wording"
+      "Explain the enzyme-substrate interaction",
+      "Include more detail about factors affecting enzymes"
     ],
 
+
     examinerComment:
-      "Good understanding shown. To achieve full marks, include more detailed biological explanations."
+      "Good understanding shown. Add the missing marking points to reach full marks."
 
   });
 

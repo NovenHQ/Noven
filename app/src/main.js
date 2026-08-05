@@ -67,16 +67,20 @@ document.querySelector("#app").innerHTML = `
 const button = document.querySelector("#analyze");
 const result = document.querySelector("#result");
 
+
 button.addEventListener("click", async () => {
 
   const answer = document.querySelector("#answer").value;
+
 
   if (!answer.trim()) {
     result.textContent = "Please enter your answer first.";
     return;
   }
 
+
   result.innerHTML = "Analyzing...";
+
 
   try {
 
@@ -104,6 +108,7 @@ button.addEventListener("click", async () => {
     const data = await response.json();
 
 
+
     result.innerHTML = `
 
       <h3 class="report-title">
@@ -113,7 +118,9 @@ button.addEventListener("click", async () => {
 
       <div class="score-card">
 
-        <h4>Score</h4>
+        <h4>
+          Score
+        </h4>
 
         <div class="score">
           ${data.score}
@@ -124,6 +131,43 @@ button.addEventListener("click", async () => {
         </p>
 
       </div>
+
+
+
+      <div class="report-card">
+
+        <h4>
+          Mark Allocation
+        </h4>
+
+
+        <div class="mark-list">
+
+          ${data.markAllocation.map(item => `
+
+            <div class="mark-item ${item.status.toLowerCase()}">
+
+              <strong>
+                ${item.mark}
+              </strong>
+
+              <p>
+                ${item.point}
+              </p>
+
+              <span>
+                ${item.status}
+              </span>
+
+            </div>
+
+          `).join("")}
+
+        </div>
+
+      </div>
+
+
 
 
       <div class="report-grid">
@@ -144,6 +188,7 @@ button.addEventListener("click", async () => {
         </div>
 
 
+
         <div class="report-card improvement-card">
 
           <h4>
@@ -162,19 +207,6 @@ button.addEventListener("click", async () => {
       </div>
 
 
-      <div class="report-card">
-
-        <h4>
-          Mark Breakdown
-        </h4>
-
-        <ul>
-          ${data.markBreakdown
-            .map(item => `<li>${item}</li>`)
-            .join("")}
-        </ul>
-
-      </div>
 
 
       <div class="report-card">
@@ -188,6 +220,7 @@ button.addEventListener("click", async () => {
         </p>
 
       </div>
+
 
     `;
 
