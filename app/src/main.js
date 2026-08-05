@@ -40,7 +40,7 @@ document.querySelector("#app").innerHTML = `
 
       <label>
         Exam Question
-        <textarea 
+        <textarea
           id="question"
           placeholder="Paste the exam question here..."
         ></textarea>
@@ -48,7 +48,7 @@ document.querySelector("#app").innerHTML = `
 
       <label>
         Your Answer
-        <textarea 
+        <textarea
           id="answer"
           placeholder="Paste your Biology answer here..."
         ></textarea>
@@ -76,7 +76,7 @@ button.addEventListener("click", async () => {
     return;
   }
 
-  result.textContent = "Analyzing...";
+  result.innerHTML = "Analyzing...";
 
   try {
 
@@ -105,32 +105,90 @@ button.addEventListener("click", async () => {
 
 
     result.innerHTML = `
-      <h3>Examiner Report</h3>
 
-      <h4>Score</h4>
-      <p>${data.score}</p>
-
-
-      <h4>Mark Breakdown</h4>
-      <ul>
-        ${data.markBreakdown.map(item => `<li>${item}</li>`).join("")}
-      </ul>
+      <h3 class="report-title">
+        Examiner Report
+      </h3>
 
 
-      <h4>Strengths</h4>
-      <ul>
-        ${data.strengths.map(item => `<li>${item}</li>`).join("")}
-      </ul>
+      <div class="score-card">
+
+        <h4>Score</h4>
+
+        <div class="score">
+          ${data.score}
+        </div>
+
+        <p>
+          Marks Achieved
+        </p>
+
+      </div>
 
 
-      <h4>Improvements</h4>
-      <ul>
-        ${data.improvements.map(item => `<li>${item}</li>`).join("")}
-      </ul>
+      <div class="report-grid">
 
 
-      <h4>Examiner Comment</h4>
-      <p>${data.examinerComment}</p>
+        <div class="report-card">
+
+          <h4>
+            ✓ Strengths
+          </h4>
+
+          <ul>
+            ${data.strengths
+              .map(item => `<li>${item}</li>`)
+              .join("")}
+          </ul>
+
+        </div>
+
+
+        <div class="report-card improvement-card">
+
+          <h4>
+            ⚠ Improvements
+          </h4>
+
+          <ul>
+            ${data.improvements
+              .map(item => `<li>${item}</li>`)
+              .join("")}
+          </ul>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="report-card">
+
+        <h4>
+          Mark Breakdown
+        </h4>
+
+        <ul>
+          ${data.markBreakdown
+            .map(item => `<li>${item}</li>`)
+            .join("")}
+        </ul>
+
+      </div>
+
+
+      <div class="report-card">
+
+        <h4>
+          Examiner Comment
+        </h4>
+
+        <p>
+          ${data.examinerComment}
+        </p>
+
+      </div>
+
     `;
 
 

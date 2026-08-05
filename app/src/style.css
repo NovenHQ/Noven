@@ -37,6 +37,7 @@ body {
   color: #475569;
 }
 
+
 /* Main Product Card */
 
 .product {
@@ -59,6 +60,7 @@ body {
   margin-bottom: 30px;
 }
 
+
 /* Exam Context */
 
 .context-panel {
@@ -73,6 +75,7 @@ label {
   color: #334155;
 }
 
+
 select {
   width: 100%;
   margin-top: 8px;
@@ -84,6 +87,7 @@ select {
   color: #0f172a;
   cursor: pointer;
 }
+
 
 /* Text Areas */
 
@@ -106,6 +110,7 @@ select:focus {
   border-color: #0f172a;
 }
 
+
 /* Button */
 
 button {
@@ -125,18 +130,90 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Feedback */
+
+/* Feedback Container */
 
 .feedback {
-  margin-top: 35px;
-  padding: 25px;
-  background: #f1f5f9;
-  border-radius: 16px;
-  text-align: left;
-  white-space: pre-line;
-  line-height: 1.7;
-  color: #334155;
+  margin-top: 40px;
 }
+
+
+/* Examiner Report Cards */
+
+.report-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+
+.score-card {
+  background: #0f172a;
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+.score-card h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+
+.score {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+
+.score-card p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+
+.report-card {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 25px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
+.report-card h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+
+.report-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+
+.report-card li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+
+.improvement-card {
+  background: #fff7ed;
+}
+
 
 /* Mobile */
 
@@ -146,17 +223,25 @@ button:hover {
     margin-top: 60px;
   }
 
+
   .hero h1 {
     font-size: 42px;
   }
+
 
   .hero p {
     font-size: 17px;
   }
 
+
   .product {
     margin: 20px;
     padding: 30px 20px;
+  }
+
+
+  .report-grid {
+    grid-template-columns: 1fr;
   }
 
 }
