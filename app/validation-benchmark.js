@@ -363,7 +363,7 @@ const validationCases = [
   {
     id: "selective-breeding",
     title: "Selective breeding",
-    expectedScore: 4,
+    expectedScore: 5,
     request: {
       board: "Edexcel",
       qualification: "IGCSE",
@@ -385,7 +385,7 @@ const validationCases = [
   {
     id: "natural-selection",
     title: "Natural selection",
-    expectedScore: 5,
+    expectedScore: 6,
     request: {
       board: "Edexcel",
       qualification: "IGCSE",
